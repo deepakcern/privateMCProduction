@@ -6,7 +6,7 @@
 import FWCore.ParameterSet.Config as cms
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing ('analysis')
-options.register('jobNum', 0, VarParsing.multiplicity.singleton,VarParsing.varType.int,"jobNum")
+options.register('jobNum', 1, VarParsing.multiplicity.singleton,VarParsing.varType.int,"jobNum")
 options.parseArguments()
 
 from Configuration.StandardSequences.Eras import eras
@@ -30,13 +30,13 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(500)
+    input = cms.untracked.int32(5)
 )
 
 # Input source
 firstLumi=10*options.jobNum+1 ## eventsPerJob/eventsPerLumi*jobNum +1
 process.source = cms.Source("EmptySource",
-		firstLuminosityBlock  = cms.untracked.uint32(firstLumi),
+		firstLuminosityBlock  = cms.untracked.uint32(1),
 		numberEventsInLuminosityBlock = cms.untracked.uint32(100)
         )
 
@@ -46,7 +46,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py nevts:500'),
+    annotation = cms.untracked.string('Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py nevts:5'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
