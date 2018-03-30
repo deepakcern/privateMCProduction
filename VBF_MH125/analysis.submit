@@ -1,0 +1,12 @@
+Universe = vanilla
+Executable = runAnalysis.sh
+Arguments = $(channel)
+should_transfer_files = YES
+transfer_input_files = /etc/ciconnect/templates/cmssw_setup.sh,step1.py,step2.py,step3.py,step4.py,fake.py,scriptExe.sh,HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py
+# Note we will store files in a "log" directory
+# that needs to be created beforehand
+Error = log/job_$(Cluster)-$(Process).err
+Output = log/job_$(Cluster)-$(Process).out
+Log = log/job_$(Cluster).log
+
+Queue 2000
