@@ -10,7 +10,7 @@ from Configuration.StandardSequences.Eras import eras
 
 process = cms.Process('PAT',eras.Phase2_timing)
 
-str = (time.strftime("%s", time.gmtime()))
+test = (time.strftime("%s", time.gmtime()))
 # import of standard configurations
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
@@ -57,7 +57,7 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
     dropMetaData = cms.untracked.string('ALL'),
     eventAutoFlushCompressedSize = cms.untracked.int32(-900),
     fastCloning = cms.untracked.bool(False),
-    exec("fileName = cms.untracked.string('file:MiniAOD_10"+str+".root')"),
+    fileName = cms.untracked.string('file:MiniAOD_10'+test+'.root'),
     outputCommands = process.MINIAODSIMEventContent.outputCommands,
     overrideBranchesSplitLevel = cms.untracked.VPSet(cms.untracked.PSet(
         branch = cms.untracked.string('patPackedCandidates_packedPFCandidates__*'),
