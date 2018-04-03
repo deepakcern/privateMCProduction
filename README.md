@@ -3,7 +3,7 @@
 ## PHASE-II VBFH Production:
 
 ## 1. CMSSW release
-First we need to release required CMSSW. To release CMSSW , follow these commands
+First we need to release required CMSSW. To release CMSSW , follow these commands:
 
 ```source /cvmfs/cms.cern.ch/cmsset_default.sh
 export SCRAM_ARCH=slc6_amd64_gcc630
@@ -16,7 +16,7 @@ Pythia hadronisation file will depend on your process and decay modes.Please use
 
 ```curl -s --insecure https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/HIG-PhaseIISummer17wmLHEGENOnly-00020 --retry 2 --create-dirs -o Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py```
 
-(We can find official hadronisation file from McM page)
+(You can find official pythia hadronisation file from McM page)
 
 scram b
 
