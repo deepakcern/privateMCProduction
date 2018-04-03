@@ -1,6 +1,6 @@
 # privateMCProduction
 
-## GENSIM Production:
+## GENSIM-DIGIRECO-MINIAOD Production:
 
 ## 1. CMSSW release
 First we need to release required CMSSW. To release CMSSW , follow these commands
@@ -34,7 +34,7 @@ cmsRun step1.py
 
 After this step you will get GENSIM file for 10 events.
 
-## 4. getting DIGIRECO file
+## 4. Getting DIGIRECO file
 
 ```cd ../../
 cmsDriver step1 --filein file:step1.root --fileout file:step2.root --mc --eventcontent FEVTDEBUGHLT --pileup NoPileUp --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-DIGI-RAW --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@fake --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename step2.py --no_exec -n 10
