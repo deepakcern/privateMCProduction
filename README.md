@@ -73,13 +73,11 @@ After this step you will get MINIAOD file for 10 events
 To get MINIAOD in single step we can submit crab job.
 
 1.Ckeck locally on lxplus
-
 ```mkdir crab
 cd crab
 . newScript.sh
 ```
 or 
-
 ```cd CMSSW_9_3_7/src
 . scriptExe.sh
 ```
