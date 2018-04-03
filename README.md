@@ -70,9 +70,9 @@ cmsRun MiniAod_10.py
 After this step you will get MINIAOD file for 10 events
 
 # Submit Crab Job
-To get MINIAOD in single step we can submit crab job.
 
-1.Ckeck locally on lxplus
+
+1. You can check script locally on lxplus
 ```
 mkdir crab
 cd crab
