@@ -45,7 +45,7 @@ cmsenv
 cmsRun step2.py
 ```
 
-After this step you will get step2.root file for 10 events
+After this step you will get step2.root file for 10 events.
 ```
 cd ../../
 cmsDriver step2 --filein file:step2.root --fileout file:step3.root --mc --eventcontent RECOSIM --runUnscheduled --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-RECO --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step RAW2DIGI,L1Reco,RECO --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename step3.py --no_exec -n 10
@@ -94,8 +94,8 @@ crab submit -c crab.py
 ```
 
 # Submit Condor Job
-## Optional
-Check locally using these command:
+## Optional step
+Check locally using these commands:
 
 ```
 git clone https://github.com/deepakcern/privateMCProduction.git
