@@ -11,7 +11,7 @@ scram p CMSSW CMSSW_9_3_7
 cd CMSSW_9_3_7/src
 eval `scram runtime -sh`
 ```
-## 2. Copy Pythia Hadronisation file
+## 2. Copy Pythia Hadronization file
 Pythia hadronisation file will depend on your process and decay modes.Please use correct hadronisation file.
 
 ```curl -s --insecure https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/HIG-PhaseIISummer17wmLHEGENOnly-00020 --retry 2 --create-dirs -o Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py```
@@ -34,7 +34,7 @@ cmsRun step1.py
 
 After this step you will get GENSIM file for 10 events.
 
-## 4. Getting DIGIRECO file
+## 4. Generating DIGIRECO file
 ```
 cd ../../
 cmsDriver step1 --filein file:step1.root --fileout file:step2.root --mc --eventcontent FEVTDEBUGHLT --pileup NoPileUp --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-DIGI-RAW --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@fake --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename step2.py --no_exec -n 10
@@ -58,7 +58,7 @@ cmsRun step3.py
 
 After this step you will get step3.root file for 10 events.
 
-## 5. Getting MINOAOD
+## 5. Generating MINOAOD
 ```
 cd ../../
 cmsDriver step1 --filein file:step3.root --fileout file:MiniAOD.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 93X_upgrade2023_realistic_v5 --step PAT --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename MiniAod_10.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
