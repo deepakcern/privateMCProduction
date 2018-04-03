@@ -23,13 +23,14 @@ scram b
 # 3. Generating GENSIM file
 To get GENSIM file please follow these cammands
 
-cd ../../
+```cd ../../
 cmsDriver Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py --fileout file:step1.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step LHE,GEN,SIM --geometry Extended2023D17 --era Phase2_timing --python_filename step1.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
 
 cp step1.py CMSSW_9_3_7/src
 cd CMSSW_9_3_7/src
 cmsenv
 cmsRun step1.py
+```
 
 Finally you will get GENSIM file for 10 events.
 
