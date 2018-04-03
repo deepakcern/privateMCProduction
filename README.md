@@ -22,8 +22,8 @@ scram b
 
 ## 3. Generating GENSIM file
 To get GENSIM file please follow these cammands
-
-```cd ../../
+```
+cd ../../
 cmsDriver Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py --fileout file:step1.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step LHE,GEN,SIM --geometry Extended2023D17 --era Phase2_timing --python_filename step1.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
 
 cp step1.py CMSSW_9_3_7/src
@@ -35,8 +35,8 @@ cmsRun step1.py
 After this step you will get GENSIM file for 10 events.
 
 ## 4. Getting DIGIRECO file
-
-```cd ../../
+```
+cd ../../
 cmsDriver step1 --filein file:step1.root --fileout file:step2.root --mc --eventcontent FEVTDEBUGHLT --pileup NoPileUp --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-DIGI-RAW --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@fake --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename step2.py --no_exec -n 10
 
 cp step2.py CMSSW_9_3_7/src
@@ -46,8 +46,8 @@ cmsRun step2.py
 ```
 
 After this step you will get step2.root file for 10 events
-
-```cd ../../
+```
+cd ../../
 cmsDriver step2 --filein file:step2.root --fileout file:step3.root --mc --eventcontent RECOSIM --runUnscheduled --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-RECO --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step RAW2DIGI,L1Reco,RECO --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename step3.py --no_exec -n 10
 
 cp step3.py CMSSW_9_3_7/src
@@ -59,8 +59,8 @@ cmsRun step3.py
 After this step you will get step3.root file for 10 events.
 
 ## 5. Getting MINOAOD
-
-```cd ../../
+```
+cd ../../
 cmsDriver step1 --filein file:step3.root --fileout file:MiniAOD.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 93X_upgrade2023_realistic_v5 --step PAT --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename MiniAod_10.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
 
 cp MiniAod_10.py CMSSW_9_3_7/src
@@ -73,12 +73,14 @@ After this step you will get MINIAOD file for 10 events
 To get MINIAOD in single step we can submit crab job.
 
 1.Ckeck locally on lxplus
-```mkdir crab
+```
+mkdir crab
 cd crab
 . newScript.sh
 ```
 or 
-```cd CMSSW_9_3_7/src
+```
+cd CMSSW_9_3_7/src
 . scriptExe.sh
 ```
 You will get output files: step1.root,step2.root,step3.root,MINIAOD.root
