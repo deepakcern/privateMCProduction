@@ -84,7 +84,8 @@ or
 You will get output files: step1.root,step2.root,step3.root,MINIAOD.root
 
 2. Submit crab job
-```source /cvmfs/cms.cern.ch/crab3/crab.sh
+```
+source /cvmfs/cms.cern.ch/crab3/crab.sh
 voms-proxy-init --voms cms --valid 168:00
 crab submit -c crab.py
 ```
