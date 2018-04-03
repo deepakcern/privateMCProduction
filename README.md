@@ -58,7 +58,7 @@ cmsRun step3.py
 
 After this step you will get step3.root file for 10 events.
 
-## 5. Generating MINOAOD
+## 5. Generating MINIAOD
 ```
 cd ../../
 cmsDriver step1 --filein file:step3.root --fileout file:MiniAOD.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 93X_upgrade2023_realistic_v5 --step PAT --nThreads 4 --geometry Extended2023D17 --era Phase2_timing --python_filename MiniAod_10.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
