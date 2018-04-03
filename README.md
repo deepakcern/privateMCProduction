@@ -72,7 +72,7 @@ After this step you will get MINIAOD file for 10 events
 # Submit Crab Job
 
 ## Optional step:
-You can check script locally on lxplus
+You can check the script locally on lxplus
 ```
 mkdir crab
 cd crab
