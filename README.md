@@ -69,7 +69,7 @@ cmsRun MiniAod_10.py
 ```
 After this step you will get MINIAOD file for 10 events
 
-# Crab job submition
+# Submit Crab Job
 To get MINIAOD in single step we can submit crab job.
 
 1.Ckeck locally on lxplus
@@ -91,3 +91,19 @@ source /cvmfs/cms.cern.ch/crab3/crab.sh
 voms-proxy-init --voms cms --valid 168:00
 crab submit -c crab.py
 ```
+
+# Submit Condor Job
+
+1.Check locally using these command:
+
+```
+git clone https://github.com/deepakcern/privateMCProduction.git
+cd privateMCProduction
+. runAnalysis.sh
+```
+2.Submit Condor Job
+```
+condor_submit analysis.submit
+```
+
+
