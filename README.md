@@ -69,3 +69,22 @@ cmsRun MiniAod_10.py
 ```
 After this step you will get MINIAOD file for 10 events
 
+# Crab job submition
+To get MINIAOD in single step we can submit crab job.
+
+1.Ckeck locally on lxplus
+
+```mkdir crab
+. newScript.sh
+```
+or 
+```cd CMSSW_9_3_7/src
+. scriptExe.sh
+```
+You will get output files: step1.root,step2.root,step3.root,MINIAOD.root
+
+2. Submit crab job
+```source /cvmfs/cms.cern.ch/crab3/crab.sh
+voms-proxy-init --voms cms --valid 168:00
+crab submit -c crab.py
+```
