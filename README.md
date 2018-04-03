@@ -12,14 +12,14 @@ cd CMSSW_9_3_7/src
 eval `scram runtime -sh`
 ```
 ## 2. Copy Pythia Hadronization file
-Pythia hadronisation file will depend on your process and decay modes.Please use correct hadronisation file.
+Pythia hadronisation file will depend on your process and decay modes.Please use correct hadronization file.
 
 ```curl -s --insecure https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/HIG-PhaseIISummer17wmLHEGENOnly-00020 --retry 2 --create-dirs -o Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py```
 
-(You can find official pythia hadronisation file from McM page)
-
+(You can find official pythia hadronization file from McM page)
+```
 scram b
-
+```
 ## 3. Generating GENSIM file
 To get GENSIM file please follow these cammands:
 ```
