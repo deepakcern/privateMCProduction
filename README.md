@@ -71,8 +71,8 @@ After this step you will get MINIAOD file for 10 events
 
 # Submit Crab Job
 
-
-1. You can check script locally on lxplus
+## Optional step:
+You can check script locally on lxplus
 ```
 mkdir crab
 cd crab
@@ -84,8 +84,9 @@ cd CMSSW_9_3_7/src
 . scriptExe.sh
 ```
 You will get output files: step1.root,step2.root,step3.root,MINIAOD.root
+If you are getting these files the your script is fine.
 
-2. Submit crab job
+ ## Submitting crab job
 ```
 source /cvmfs/cms.cern.ch/crab3/crab.sh
 voms-proxy-init --voms cms --valid 168:00
