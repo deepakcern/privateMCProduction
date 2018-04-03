@@ -84,7 +84,7 @@ cd CMSSW_9_3_7/src
 . scriptExe.sh
 ```
 You will get output files: step1.root,step2.root,step3.root,MINIAOD.root
-If you are getting these files the your script is fine.
+If you are getting these files then your script is fine.
 
  ## Submitting crab job
 ```
@@ -94,15 +94,15 @@ crab submit -c crab.py
 ```
 
 # Submit Condor Job
-
-1.Check locally using these command:
+## Optional
+Check locally using these command:
 
 ```
 git clone https://github.com/deepakcern/privateMCProduction.git
 cd privateMCProduction
 . runAnalysis.sh
 ```
-2.Submit Condor Job
+# Submitting Condor Job
 ```
 condor_submit analysis.submit
 ```
