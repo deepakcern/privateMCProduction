@@ -1,6 +1,6 @@
 # privateMCProduction
 
-## GENSIM-DIGIRECO-MINIAOD Production:
+## PHASE-II VBFH Production:
 
 ## 1. CMSSW release
 First we need to release required CMSSW. To release CMSSW , follow these commands
@@ -11,7 +11,7 @@ scram p CMSSW CMSSW_9_3_7
 cd CMSSW_9_3_7/src
 eval `scram runtime -sh`
 ```
-## 2. Copy pythia hadronisation file
+## 2. Copy Pythia Hadronisation file
 Pythia hadronisation file will depend on your process and decay modes.Please use correct hadronisation file.
 
 ```curl -s --insecure https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/HIG-PhaseIISummer17wmLHEGENOnly-00020 --retry 2 --create-dirs -o Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py```
@@ -21,7 +21,7 @@ Pythia hadronisation file will depend on your process and decay modes.Please use
 scram b
 
 ## 3. Generating GENSIM file
-To get GENSIM file please follow these cammands
+To get GENSIM file please follow these cammands:
 ```
 cd ../../
 cmsDriver Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py --fileout file:step1.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step LHE,GEN,SIM --geometry Extended2023D17 --era Phase2_timing --python_filename step1.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
