@@ -1,8 +1,23 @@
-# privateMCProduction
+# privateMCProduction for PHASE-II VBFHbb :
 
-## PHASE-II VBFH Production:
+Table of Contents
+=================
+  
+  * [Requirements](#requirements)
+  * [Recipe for generating FulSim samples in LXPLUS](#renerate-locally-in-LXPLUS)
+    * [CMSSW release](#cmssw-release)
+    * [Copy Pythia Hadronization File](#copy-Pythia-Hadronization-File)
+    * [Generating GENSIM File](#generating-gensim-File)
+    * [Generating DIGIRECO File](#generating-digireco-File)
+    * [Generating MINIAOD File](#generating-miniaod-File)
+  * [Recipe for generating FulSim samples in CRAB](#Submit-Crab-Job)
+    * [GENSIM production](#GENSIM-production)
+  * [Recipe for generating FulSim samples in Condor](#Submit-Condor-Job)
+    
 
-### 1. CMSSW release
+ ## Requirements :
+ 
+ ### 1. CMSSW release
 First we need to release required CMSSW. To release CMSSW , follow these commands:
 
 ```source /cvmfs/cms.cern.ch/cmsset_default.sh
@@ -20,6 +35,9 @@ Pythia hadronization file will depend on your process and decay modes.Please use
 ```
 scram b
 ```
+
+## Generate locally in LXPLUS :
+
 ### 3. Generating GENSIM File
 To get GENSIM file please follow these cammands:
 ```
@@ -70,8 +88,9 @@ cmsRun MiniAod_10.py
 After this step you will get MINIAOD file for 10 events
 
 # Submit Crab Job
+
 ## GENSIM production 
-To produce GENSIM file, you need to modify two files `privateproduction.sh` and `crabconfig_draft.py` according to user.
+To produce GENSIM file, you need to modify two files `privateproduction.sh` and `crabconfig_draft.py` accordingly. Go through both files in details. In `privateproduction.sh` provide required number of events in `NUMBEREVENTS` and your Gridpack location in `GRIDPACKLOC`. In `crabconfig_draft.py` provide your T2 site in `config.Site.storageSite` and storage location in `config.Data.outLFNDirBase` and provide units per job in `config.Data.unitsPerJob` accordingly. 
 
 To check script locally, do `USECRAB="False"` inside the script `privateproduction.sh` and run this command:
 ```
