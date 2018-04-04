@@ -82,12 +82,6 @@ To submit crab job, do `USECRAB="True"` inside the script `privateproduction.sh`
 . privateproduction.sh
 ```
 
- ## Submitting crab job
-```
-source /cvmfs/cms.cern.ch/crab3/crab.sh
-voms-proxy-init --voms cms --valid 168:00
-crab submit -c crab.py
-```
 
 # Submit Condor Job
 ## Optional step
@@ -102,5 +96,5 @@ cd privateMCProduction
 ```
 condor_submit analysis.submit
 ```
-
+(We will update condor job script soon)
 
