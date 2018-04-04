@@ -4,9 +4,9 @@ Table of Contents
 =================
   
   * [Requirements](#requirements)
-  * [Recipe for generating FulSim samples in LXPLUS](#renerate-locally-in-LXPLUS)
     * [CMSSW release](#cmssw-release)
-    * [Copy Pythia Hadronization File](#copy-Pythia-Hadronization-File)
+    * [Copying Pythia Hadronization File](#copy-Pythia-Hadronization-File)
+  * [Recipe for generating FulSim samples in LXPLUS](#renerate-locally-in-LXPLUS)
     * [Generating GENSIM File](#generating-gensim-File)
     * [Generating DIGIRECO File](#generating-digireco-File)
     * [Generating MINIAOD File](#generating-miniaod-File)
