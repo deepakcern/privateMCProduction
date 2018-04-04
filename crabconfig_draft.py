@@ -18,7 +18,7 @@ config.JobType.disableAutomaticOutputCollection = False
 config.section_("Data")
 config.Data.outputPrimaryDataset = 'privateMCProductionLHEGEN'
 config.Data.splitting = 'EventBased'
-config.Data.unitsPerJob = 1200
+config.Data.unitsPerJob = 100
 config.Data.totalUnits = #NUMBEREVENTS#
 config.Data.publication = True
 config.Data.outputDatasetTag = 'eventLHEGEN-#BASENAME#-#REQUESTDATE#'
@@ -27,9 +27,8 @@ config.Data.outLFNDirBase = '/store/user/%s/t3store2/VBFHbb' % (getUsernameFromS
 config.section_("Site")
 #config.Site.storageSite = 'T2_DE_DESY'
 config.Site.storageSite = 'T2_IN_TIFR'
-#config.Site.whitelist = ['T2_*']
+config.Site.whitelist = ['T2_*']
 
 #config.section_("User")
 ## only german users
 #config.User.voGroup = "dcms"
-

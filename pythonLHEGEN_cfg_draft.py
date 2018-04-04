@@ -1,7 +1,7 @@
 # Auto generated configuration file
-# using: 
-# Revision: 1.19 
-# Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
+# using:
+# Revision: 1.19
+# Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v
 # with command line options: Configuration/GenProduction/python/HIG-PhaseIISummer17wmLHEGENOnly-00020-fragment.py --fileout file:HIG-PhaseIISummer17wmLHEGENOnly-00020.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 93X_upgrade2023_realistic_v5 --beamspot HLLHC14TeV --step LHE,GEN,SIM --geometry Extended2023D17 --era Phase2_timing --python_filename HIG-PhaseIISummer17wmLHEGENOnly-00020_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10
 import FWCore.ParameterSet.Config as cms
 
@@ -80,29 +80,29 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '93X_upgrade2023_realistic_v5',
 
 process.generator = cms.EDFilter("Pythia8HadronizerFilter",
     PythiaParameters = cms.PSet(
-        parameterSets = cms.vstring('pythia8CommonSettings', 
-            'pythia8PowhegEmissionVetoSettings', 
+        parameterSets = cms.vstring('pythia8CommonSettings',
+            'pythia8PowhegEmissionVetoSettings',
             'processParameters'),
-        processParameters = cms.vstring('POWHEG:nFinal = 3', 
-            '25:m0 = 125.0', 
-            '25:onMode = off', 
+        processParameters = cms.vstring('POWHEG:nFinal = 3',
+            '25:m0 = 125.0',
+            '25:onMode = off',
             '25:onIfMatch = 5 -5'),
-        pythia8CommonSettings = cms.vstring('Tune:preferLHAPDF = 2', 
-            'Main:timesAllowErrors = 10000', 
-            'Check:epTolErr = 0.01', 
-            'Beams:setProductionScalesFromLHEF = off', 
-            'SLHA:keepSM = on', 
-            'SLHA:minMassSM = 1000.', 
-            'ParticleDecays:limitTau0 = on', 
-            'ParticleDecays:tau0Max = 10', 
+        pythia8CommonSettings = cms.vstring('Tune:preferLHAPDF = 2',
+            'Main:timesAllowErrors = 10000',
+            'Check:epTolErr = 0.01',
+            'Beams:setProductionScalesFromLHEF = off',
+            'SLHA:keepSM = on',
+            'SLHA:minMassSM = 1000.',
+            'ParticleDecays:limitTau0 = on',
+            'ParticleDecays:tau0Max = 10',
             'ParticleDecays:allowPhotonRadiation = on'),
-        pythia8PowhegEmissionVetoSettings = cms.vstring('POWHEG:veto = 1', 
-            'POWHEG:pTdef = 1', 
-            'POWHEG:emitted = 0', 
-            'POWHEG:pTemt = 0', 
-            'POWHEG:pThard = 0', 
-            'POWHEG:vetoCount = 100', 
-            'SpaceShower:pTmaxMatch = 2', 
+        pythia8PowhegEmissionVetoSettings = cms.vstring('POWHEG:veto = 1',
+            'POWHEG:pTdef = 1',
+            'POWHEG:emitted = 0',
+            'POWHEG:pTemt = 0',
+            'POWHEG:pThard = 0',
+            'POWHEG:vetoCount = 100',
+            'SpaceShower:pTmaxMatch = 2',
             'TimeShower:pTmaxMatch = 2')
     ),
     comEnergy = cms.double(14000.0),
@@ -114,8 +114,8 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
 
 
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc630/14TeV/powheg/V2/VBF_H_NNPDF30_M125/v1/VBF_H_slc6_amd64_gcc630_CMSSW_9_3_0_test_AllInOneVBF_H_NNPDF30_14TeV_M125.tgz'),
-    nEvents = cms.untracked.uint32(10),
+    args = cms.vstring('#GRIDPACKLOCATION#'),
+    nEvents = cms.untracked.uint32(#NUMBEREVENTS#),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
     scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh')
@@ -123,6 +123,12 @@ process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
 
 
 process.ProductionFilterSequence = cms.Sequence(process.generator)
+
+# Set different random numbers seeds every time one runs cmsRun
+from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
+randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
+randSvc.populate()
+
 
 # Path and EndPath definitions
 process.lhe_step = cms.Path(process.externalLHEProducer)
@@ -140,12 +146,12 @@ associatePatAlgosToolsTask(process)
 # filter all path with the production filter sequence
 for path in process.paths:
 	if path in ['lhe_step']: continue
-	getattr(process,path)._seq = process.ProductionFilterSequence * getattr(process,path)._seq 
+	getattr(process,path)._seq = process.ProductionFilterSequence * getattr(process,path)._seq
 
 # customisation of the process.
 
 # Automatic addition of the customisation function from Configuration.DataProcessing.Utils
-from Configuration.DataProcessing.Utils import addMonitoring 
+from Configuration.DataProcessing.Utils import addMonitoring
 
 #call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
 process = addMonitoring(process)
