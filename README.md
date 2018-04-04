@@ -70,7 +70,7 @@ cmsRun MiniAod_10.py
 After this step you will get MINIAOD file for 10 events
 
 # Submit Crab Job
-## GENGIM production 
+## GENSIM production 
 To produce GENSIM file, you need to modify two files `privateproduction.sh` and `crabconfig_draft.py` according to user.
 
 To check script locally, do `USECRAB="False"` inside the script `privateproduction.sh` and run this command:
