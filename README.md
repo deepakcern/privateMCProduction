@@ -90,7 +90,7 @@ After this step you will get MINIAOD file for 10 events
 # Submit Crab Job
 
 ## GENSIM production 
-To produce GENSIM file, you need to modify two files `privateproduction.sh` and `crabconfig_draft.py` accordingly. Go through both files in details. In `privateproduction.sh` provide required number of events in `NUMBEREVENTS` and your Gridpack location in `GRIDPACKLOC`. In `crabconfig_draft.py` provide your T2 site in `config.Site.storageSite` and storage location in `config.Data.outLFNDirBase` and provide units per job in `config.Data.unitsPerJob` accordingly. 
+To produce GENSIM file, you need to modify two files `privateproduction.sh` and `crabconfig_draft.py` accordingly. Go through both files in details. In `privateproduction.sh` script, provide required number of events in `NUMBEREVENTS` and your Gridpack location in `GRIDPACKLOC`. In `crabconfig_draft.py` file, provide your T2 site in `config.Site.storageSite` and storage location in `config.Data.outLFNDirBase` and provide units per job in `config.Data.unitsPerJob` accordingly. 
 
 To check script locally, do `USECRAB="False"` inside the script `privateproduction.sh` and run this command:
 ```
