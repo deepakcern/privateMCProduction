@@ -81,7 +81,7 @@ To submit crab job, do `USECRAB="True"` inside the script `privateproduction.sh`
 ```
 . privateproduction.sh
 ```
-
+### we will update soon for miniAOD production using crab job
 
 # Submit Condor Job
 ## Optional step
